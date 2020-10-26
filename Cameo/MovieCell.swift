@@ -42,4 +42,15 @@ class MovieCell: UICollectionViewCell {
     }
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
+    
+    
+    @IBOutlet weak var cellView: UIView! {
+        didSet {
+            cellView.layer.cornerRadius = 5;
+            cellView.layer.masksToBounds = true;
+        }
+    }
+    
+    
+    
 }

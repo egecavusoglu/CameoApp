@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDataSource {
-
+class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     var movies: [Movie]?
     @IBOutlet weak var searchBar: UISearchBar!
     var searchTask: DispatchWorkItem?
@@ -20,7 +20,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDat
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         searchBar.delegate = self
-//        collectionView.delegate = self
+        collectionView.delegate = self
         collectionView.dataSource = self
     }
     
@@ -39,7 +39,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDat
         }
         searchMovies(query: query)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies?.count ?? 0
     }
@@ -55,7 +55,13 @@ class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDat
             return UICollectionViewCell()
         }
     }
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = (self.view.frame.width - 80.0) / 2
+        let height: CGFloat = (width / 2) * 3
+        
+        return CGSize(width: width, height: height)
+    }
     
 }
 
