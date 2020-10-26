@@ -15,6 +15,8 @@
 		82294A0A2546ECB60066576E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82294A082546ECB60066576E /* LaunchScreen.storyboard */; };
 		82294A12254702520066576E /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82294A11254702520066576E /* FavoritesVC.swift */; };
 		82294A142547035A0066576E /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82294A132547035A0066576E /* DetailsVC.swift */; };
+		82294A16254707AE0066576E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82294A15254707AE0066576E /* Models.swift */; };
+		822A847E254748C900A18382 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822A847D254748C900A18382 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		82294A0B2546ECB60066576E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82294A11254702520066576E /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		82294A132547035A0066576E /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		82294A15254707AE0066576E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		822A847D254748C900A18382 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +67,9 @@
 				822949FD2546ECB60066576E /* AppDelegate.swift */,
 				822949FF2546ECB60066576E /* SceneDelegate.swift */,
 				82294A012546ECB60066576E /* ViewController.swift */,
+				82294A15254707AE0066576E /* Models.swift */,
 				82294A032546ECB60066576E /* Main.storyboard */,
+				822A847D254748C900A18382 /* MovieCell.swift */,
 				82294A132547035A0066576E /* DetailsVC.swift */,
 				82294A11254702520066576E /* FavoritesVC.swift */,
 				82294A062546ECB60066576E /* Assets.xcassets */,
@@ -144,9 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				822A847E254748C900A18382 /* MovieCell.swift in Sources */,
 				82294A12254702520066576E /* FavoritesVC.swift in Sources */,
 				82294A022546ECB60066576E /* ViewController.swift in Sources */,
 				822949FE2546ECB60066576E /* AppDelegate.swift in Sources */,
+				82294A16254707AE0066576E /* Models.swift in Sources */,
 				82294A002546ECB60066576E /* SceneDelegate.swift in Sources */,
 				82294A142547035A0066576E /* DetailsVC.swift in Sources */,
 			);
