@@ -14,7 +14,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDat
     @IBOutlet weak var searchBar: UISearchBar!
     var searchTask: DispatchWorkItem?
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var movieDetails: Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,10 +57,22 @@ class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDat
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = (self.view.frame.width - 80.0) / 2
+        let width = (self.view.frame.width - 70.0) / 2
         let height: CGFloat = (width / 2) * 3
         
         return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        movieDetails = movies?[indexPath.row]
+        performSegue(withIdentifier: "goToDetails", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToDetails" {
+            let detailsVc = segue.destination as! DetailsVC
+            detailsVc.movie = movieDetails
+        }
     }
     
 }
