@@ -20,16 +20,20 @@ class MovieCell: UICollectionViewCell {
             DispatchQueue.global(qos: .background).async {
                 let baseURL = "https://image.tmdb.org/t/p/w185"
                 if (self.imageURL == nil){
+                    self.renderEmpty()
                     return
                 }
                 guard let url = URL(string: "\(baseURL + self.imageURL!)") else{
+                    self.renderEmpty()
                     return
                 }
                 guard let data = try? Data(contentsOf: url) else {
+                    self.renderEmpty()
                     return
                 }
                 
                 guard let imageData = try? UIImage(data: data) else {
+                    self.renderEmpty()
                     return
                 }
                 DispatchQueue.main.sync{
@@ -51,6 +55,11 @@ class MovieCell: UICollectionViewCell {
         }
     }
     
+    func renderEmpty() {
+        DispatchQueue.main.sync{
+        self.imageView.image = UIImage()
+        }
+    }
     
     
 }

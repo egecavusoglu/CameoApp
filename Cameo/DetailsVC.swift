@@ -38,7 +38,7 @@ class DetailsVC: UIViewController {
         imageView.addSubview(spinner)
         spinner.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive = true
         spinner.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
-        print(movie?.poster_path)
+    
         renderPhotos(poster: movie?.poster_path ?? "", backdrop: movie?.backdrop_path ?? "")
         spinner.removeFromSuperview()
         

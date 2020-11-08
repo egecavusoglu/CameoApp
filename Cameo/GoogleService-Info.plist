@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>164293229885-pg6o70ksgg5oo5ctmt6cao2p96ajf1bi.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.164293229885-pg6o70ksgg5oo5ctmt6cao2p96ajf1bi</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAk_KO5z8_4UN0H1k8wg63qKQt4B9GCkxo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>164293229885</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.egewustl.Cameo</string>
+	<key>PROJECT_ID</key>
+	<string>cameoapp-1b43f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cameoapp-1b43f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:164293229885:ios:37929083b8b178b0c71954</string>
+	<key>DATABASE_URL</key>
+	<string>https://cameoapp-1b43f.firebaseio.com</string>
+</dict>
+</plist>
