@@ -14,7 +14,7 @@ class User {
     
     var loggedIn: Bool
     var id: String?
-    var username: String?
+    
     var favorites: [Movie]?
     
     
@@ -22,12 +22,25 @@ class User {
         loggedIn = false
     }
     
-    func logIn(uid: String){
+    func updateInfo(uid: String){
         loggedIn = true
+        id = uid
+        print("INFO UPDATED \(uid)")
     }
     
     func logOut(){
         loggedIn = false
+        id = nil
+        print("USER EMPTIED")
+
+    }
+    
+    func addToFavorites(){
+        
+    }
+    
+    func getFavorites(){
+        
     }
     
     

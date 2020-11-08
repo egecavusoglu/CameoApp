@@ -16,13 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" barStyle="black" placeholder="Search Movies" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pce-NA-qwM">
+                            <searchBar contentMode="redraw" barStyle="black" placeholder="Search Movies" translatesAutoresizingMaskIntoConstraints="NO" id="pce-NA-qwM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Nga-GL-EBO"/>
                                 </constraints>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="alert" returnKeyType="search"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="alert"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="K8n-gI-k2q">
                                 <rect key="frame" x="16" y="50" width="343" height="534"/>

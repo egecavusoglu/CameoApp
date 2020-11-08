@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    
+    
     // Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -28,6 +30,10 @@ class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDat
         searchBar.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.keyboardDismissMode = .onDrag
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
     
     func searchMovies(query: String){
@@ -85,6 +91,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDat
     @IBAction func logUserIn(_ sender: Any) {
         performSegue(withIdentifier: "signinModal", sender: nil)
     }
+    
     
 }
 

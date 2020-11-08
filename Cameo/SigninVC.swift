@@ -11,13 +11,17 @@ import Firebase
 import GoogleSignIn
 import FirebaseAuth
 
+
+
+
 class SigninVC: UIViewController, GIDSignInDelegate {
     
     @IBOutlet weak var signInButton: GIDSignInButton!
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var sublabel: UILabel!
-    
-    
+        
+//    Global singleton instance of the user
+    var theUser = User.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +62,12 @@ class SigninVC: UIViewController, GIDSignInDelegate {
                 print ("FIREBASE ERROR: \(error)")
                 return
             }
+            let uid = authResult!.user.uid
+            let firstName = user.profile.givenName
             UserDefaults.standard.set(true, forKey: "loggedIn")
-            UserDefaults.standard.set(user.profile.givenName, forKey: "firstName")
-            UserDefaults.standard.set(authResult!.user.uid, forKey: "userId")
+            UserDefaults.standard.set(firstName, forKey: "firstName")
+            UserDefaults.standard.set(uid, forKey: "userId")
+            self.theUser.updateInfo(uid: uid)
             self.dismissSigninModal()
             
         }
@@ -70,7 +77,7 @@ class SigninVC: UIViewController, GIDSignInDelegate {
     
     func dismissSigninModal (){
         self.dismiss(animated: true, completion: nil)
-
+        
     }
     
     @IBAction func signOutClicked(_ sender: Any) {
@@ -86,7 +93,10 @@ class SigninVC: UIViewController, GIDSignInDelegate {
         UserDefaults.standard.set(false, forKey: "loggedIn")
         let status = UserDefaults.standard.bool(forKey: "loggedIn")
         print("SIGN IN STATUS:", status)
+        self.theUser.logOut()
         dismissSigninModal()
     }
     
 }
+
+
