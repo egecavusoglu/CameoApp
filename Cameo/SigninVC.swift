@@ -67,7 +67,6 @@ class SigninVC: UIViewController, GIDSignInDelegate {
             UserDefaults.standard.set(true, forKey: "loggedIn")
             UserDefaults.standard.set(firstName, forKey: "firstName")
             UserDefaults.standard.set(uid, forKey: "userId")
-            self.theUser.updateInfo(uid: uid)
             self.dismissSigninModal()
             
         }
@@ -91,9 +90,6 @@ class SigninVC: UIViewController, GIDSignInDelegate {
             return
         }
         UserDefaults.standard.set(false, forKey: "loggedIn")
-        let status = UserDefaults.standard.bool(forKey: "loggedIn")
-        print("SIGN IN STATUS:", status)
-        self.theUser.logOut()
         dismissSigninModal()
     }
     

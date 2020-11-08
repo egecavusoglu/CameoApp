@@ -21,6 +21,7 @@
 		8275914C2557DCE800BF6970 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8275914B2557DCE800BF6970 /* GoogleService-Info.plist */; };
 		8275914E2557E28500BF6970 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8275914D2557E28500BF6970 /* User.swift */; };
 		827591522557F8B300BF6970 /* SigninVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827591512557F8B300BF6970 /* SigninVC.swift */; };
+		8275915425582F7100BF6970 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8275915325582F7100BF6970 /* UserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		8275914B2557DCE800BF6970 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8275914D2557E28500BF6970 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		827591512557F8B300BF6970 /* SigninVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninVC.swift; sourceTree = "<group>"; };
+		8275915325582F7100BF6970 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				822A847D254748C900A18382 /* MovieCell.swift */,
 				82294A132547035A0066576E /* DetailsVC.swift */,
 				8275914D2557E28500BF6970 /* User.swift */,
+				8275915325582F7100BF6970 /* UserDefaults.swift */,
 				82294A11254702520066576E /* FavoritesVC.swift */,
 				82294A062546ECB60066576E /* Assets.xcassets */,
 				82294A082546ECB60066576E /* LaunchScreen.storyboard */,
@@ -252,6 +255,7 @@
 				822949FE2546ECB60066576E /* AppDelegate.swift in Sources */,
 				827591522557F8B300BF6970 /* SigninVC.swift in Sources */,
 				8275914E2557E28500BF6970 /* User.swift in Sources */,
+				8275915425582F7100BF6970 /* UserDefaults.swift in Sources */,
 				82294A16254707AE0066576E /* Models.swift in Sources */,
 				82294A002546ECB60066576E /* SceneDelegate.swift in Sources */,
 				82294A142547035A0066576E /* DetailsVC.swift in Sources */,

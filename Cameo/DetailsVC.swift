@@ -22,7 +22,8 @@ class DetailsVC: UIViewController {
     @IBOutlet weak var originalTitle: UILabel!
     @IBOutlet weak var rating: UILabel!
     @IBOutlet weak var releaseDate: UILabel!
-    var ref: DatabaseReference!
+
+    var theUser = User.shared
 
     
     override func viewDidLoad() {
@@ -45,7 +46,6 @@ class DetailsVC: UIViewController {
         renderPhotos(poster: movie?.poster_path ?? "", backdrop: movie?.backdrop_path ?? "")
         spinner.removeFromSuperview()
         
-        ref = Database.database().reference()
         
         
     }
@@ -72,8 +72,24 @@ class DetailsVC: UIViewController {
                 self.backdropImage.image = b
             }
         }
-        
+    }
+    
+    
+    @IBAction func addFavorite(_ sender: Any) {
+        let movieId:String = String((movie?.id)!)
+        let res = theUser.addToFavorites(name: movie!.title, id: movieId)
+        if (!res){
+            let alert = UIAlertController(title: "Oops!", message: "Make sure you are signed in before saving favorites.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+        else{
+            let alert = UIAlertController(title: "Success", message: "Movie is saved to favorites.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
         
     }
+    
 }
 

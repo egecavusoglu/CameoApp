@@ -7,44 +7,34 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 class User {
     
     static let shared = User()
     
-    var loggedIn: Bool
-    var id: String?
+    var ref = Database.database().reference()
     
-    var favorites: [Movie]?
+    
     
     
     init() {
-        loggedIn = false
-    }
-    
-    func updateInfo(uid: String){
-        loggedIn = true
-        id = uid
-        print("INFO UPDATED \(uid)")
-    }
-    
-    func logOut(){
-        loggedIn = false
-        id = nil
-        print("USER EMPTIED")
-
-    }
-    
-    func addToFavorites(){
         
     }
     
-    func getFavorites(){
+    func addToFavorites(name: String, id: String) -> Bool{
+        let movieData = ["name": name, "id": id]
+        
+        if (getLoginStatus()){
+                 ref.child("/users/\(getUserId())/favorites/\(name)").setValue(movieData)
+            return true
+        }
+        else{
+            return false
+        }
+        
         
     }
     
     
-    //     TODO
-    //    1. Fetch User favorites.
-    //    2. Add favorites.
 }
