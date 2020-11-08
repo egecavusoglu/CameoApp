@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 
 class DetailsVC: UIViewController {
     var movie: Movie?
@@ -20,7 +22,8 @@ class DetailsVC: UIViewController {
     @IBOutlet weak var originalTitle: UILabel!
     @IBOutlet weak var rating: UILabel!
     @IBOutlet weak var releaseDate: UILabel!
-    
+    var ref: DatabaseReference!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +44,9 @@ class DetailsVC: UIViewController {
     
         renderPhotos(poster: movie?.poster_path ?? "", backdrop: movie?.backdrop_path ?? "")
         spinner.removeFromSuperview()
+        
+        ref = Database.database().reference()
+        
         
     }
     

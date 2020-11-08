@@ -10,11 +10,17 @@ import UIKit
 
 class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var movies: [Movie]?
+    // Outlets
     @IBOutlet weak var searchBar: UISearchBar!
-    var searchTask: DispatchWorkItem?
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var logButton: UIBarButtonItem!
+    
+    
+    // Class member vars
+    var movies: [Movie]?
     var movieDetails: Movie?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +79,11 @@ class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDat
             let detailsVc = segue.destination as! DetailsVC
             detailsVc.movie = movieDetails
         }
+    }
+    
+    
+    @IBAction func logUserIn(_ sender: Any) {
+        performSegue(withIdentifier: "signinModal", sender: nil)
     }
     
 }
