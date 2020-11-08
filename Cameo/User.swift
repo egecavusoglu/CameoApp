@@ -36,5 +36,12 @@ class User {
         
     }
     
+    func removeFavorite(name: String) -> Bool {
+        
+        ref.child("/users/\(getUserId())/favorites/\(name)").removeValue()
+        
+        return true
+    }
+    
     
 }

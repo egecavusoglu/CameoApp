@@ -10,12 +10,13 @@ import UIKit
 
 class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    
+    let theUser = User.shared
     
     // Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var logButton: UIBarButtonItem!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     
     // Class member vars
@@ -34,15 +35,25 @@ class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDat
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+        spinner.isHidden = true
+
     }
     
+    
     func searchMovies(query: String){
+        
         DispatchQueue.main.async{
+            self.spinner.isHidden = false
+            self.spinner.startAnimating()
             if let results = getMovies(query: query) {
                 self.movies = results
                 self.collectionView.reloadData()
+                
             }
+            self.spinner.stopAnimating()
+            self.spinner.isHidden = true
         }
+        
     }
     
     func searchBar(_: UISearchBar, textDidChange: String){
@@ -91,6 +102,30 @@ class ViewController: UIViewController, UISearchBarDelegate, UICollectionViewDat
     @IBAction func logUserIn(_ sender: Any) {
         performSegue(withIdentifier: "signinModal", sender: nil)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { actions -> UIMenu? in
+            let action = UIAction(title: "Add to Favorites", image: UIImage(systemName: "star.fill")) { action in
+                let movie = self.movies?[indexPath.row]
+                let mid = String(movie!.id)
+                let res = self.theUser.addToFavorites(name: movie!.title, id: mid)
+                if (!res){
+                    let alert = UIAlertController(title: "Oops!", message: "Make sure you are signed in before saving favorites.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
+                else{
+                    let alert = UIAlertController(title: "Success", message: "Movie is saved to favorites.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
+            }
+            return UIMenu(title: "Menu", image:nil, children: [action])
+        }
+        return configuration
+    }
+    
+     
     
     
 }

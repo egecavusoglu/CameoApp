@@ -50,6 +50,7 @@ class DetailsVC: UIViewController {
         
     }
     
+    
     // Inspired by https://stackoverflow.com/questions/35700281/date-format-in-swift
     func handleDate(Date: String) -> String?{
         let dateFormatterGet = DateFormatter()

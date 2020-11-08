@@ -18,32 +18,49 @@ class FavoritesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var favorites:[[String: String]] = []
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var labelHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.keyboardDismissMode = .onDrag
-        getFavorites()
+        tableView.tableFooterView = UIView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if(getLoginStatus()){
+            tableView.isHidden = false
+            labelHeight.constant = 0
+            getFavorites()
+        }
+        else{
+            tableView.isHidden = true
+            labelHeight.constant = 25
+        }
     }
     
     func getFavorites(){
         if (getLoginStatus()){
             ref.child("/users/\(getUserId())/favorites/").observe(.value) { (snap) in
-                self.favorites = []
+                var newArr:[[String: String]]  = []
                 if let favs = snap.value as? [String: [String: String]] {
-                    for (k, v) in favs {
-//                        print("MOVIE \(k)")
-//                        print("VAL \(v["name"]!)")
-                        self.favorites.append(["name": v["name"]!, "movieId": v["id"]!])
+                    for (_, v) in favs {
+                        newArr.append(["name": v["name"]!, "movieId": v["id"]!])
                     }
+                    self.favorites = newArr
+                    self.tableView.reloadData()
+                }
+                else{
+                    self.favorites = []
                     self.tableView.reloadData()
                 }
                 
             }
         }
         else{
-            //            User is not logged in
+            self.favorites = []
+            self.tableView.reloadData()
         }
     }
     
@@ -58,6 +75,11 @@ class FavoritesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.textLabel!.text = favorites[indexPath.row]["name"]!
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let movieName = favorites[indexPath.row]["name"]!
+        let res = theUser.removeFavorite(name: movieName)
     }
     
     

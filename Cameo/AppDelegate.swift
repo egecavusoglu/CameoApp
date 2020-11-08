@@ -19,9 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         
         // Added Firebase config
         FirebaseApp.configure()
-//        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-//        GIDSignIn.sharedInstance().delegate = self
-        // You need to adopt a FUIAuthDelegate protocol to receive callback
+
         return true
     }
     
