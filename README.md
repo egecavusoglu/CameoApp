@@ -11,3 +11,17 @@ Features:
 - Browse the vast collection of movies thank to The Movie Database (TMDb)
 
 - Get quick info about movies and save your favorites.
+
+Learning Objectives:
+
+- iOS Context Menu implementation
+
+- Firebase SDK
+ 
+- Firebase Google Sign in module.
+
+- Firebase Realtime Database.
+
+- Collection and Table views with UIKit.
+
+
